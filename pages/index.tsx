@@ -24,6 +24,7 @@ interface HomeProps {
 }
 
 const Home = ({ recruitScheduleArray }: HomeProps) => {
+  // TODO: 배포용 주석 제거
   useAOS();
 
   const recruitSchedule = generateRecruitSchedule(recruitScheduleArray);
