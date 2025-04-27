@@ -54,6 +54,10 @@ const Home = ({ recruitScheduleArray }: HomeProps) => {
           <RecruitingPeriod recruitSchedule={recruitSchedule} />
           <RecruitingProcess recruitSchedule={recruitSchedule} />
           <RecruitingDetailNavigation />
+
+          {/* {isOpenNotRecruitMentModal && (
+            <NotRecruitmentPeriod setIsOpenModal={setIsOpenNotRecruitmentModal} />
+          )} */}
         </HomeLayout>
       )}
     </>
@@ -64,7 +68,7 @@ export default Home;
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   const recruitScheduleResponse = await fetch(
-    `https://api.dev-recruit.mash-up.kr/api/v1/applications/schedule/${CURRENT_GENERATION}`,
+    `${process.env.BASE_URL}/api/applications/schedule/${CURRENT_GENERATION}`,
   );
 
   if (!recruitScheduleResponse.ok) {
