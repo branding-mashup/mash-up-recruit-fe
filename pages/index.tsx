@@ -6,6 +6,7 @@ import {
   RecruitingOpenHero,
   RecruitingPeriod,
   RecruitingRemainder,
+  NotRecruitmentPeriod,
 } from '@/components';
 import { CURRENT_GENERATION } from '@/constants';
 
@@ -26,6 +27,8 @@ interface HomeProps {
 const Home = ({ recruitScheduleArray }: HomeProps) => {
   // TODO: 배포용 주석 제거
   useAOS();
+
+  const [isOpenNotRecruitMentModal, setIsOpenNotRecruitmentModal] = useState(true);
 
   const recruitSchedule = generateRecruitSchedule(recruitScheduleArray);
 
@@ -55,9 +58,9 @@ const Home = ({ recruitScheduleArray }: HomeProps) => {
           <RecruitingProcess recruitSchedule={recruitSchedule} />
           <RecruitingDetailNavigation />
 
-          {/* {isOpenNotRecruitMentModal && (
+          {isOpenNotRecruitMentModal && (
             <NotRecruitmentPeriod setIsOpenModal={setIsOpenNotRecruitmentModal} />
-          )} */}
+          )}
         </HomeLayout>
       )}
     </>
